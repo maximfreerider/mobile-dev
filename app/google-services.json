@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "257029032308",
+    "firebase_url": "https://mob-lab1-c59ee.firebaseio.com",
+    "project_id": "mob-lab1-c59ee",
+    "storage_bucket": "mob-lab1-c59ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257029032308:android:258e09dde08a3ef9184421",
+        "android_client_info": {
+          "package_name": "com.example.mob_lab1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257029032308-1ut4flpr472vlhcgltpbddt9qnmsige1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDplCglEYtNhzsx23Yjf_KrBSXzkAFNd1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257029032308-1ut4flpr472vlhcgltpbddt9qnmsige1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
