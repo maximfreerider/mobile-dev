@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\mob-lab-2\\mobile-dev-develop\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
+            "outputFile": "F:\\mob-lab-2\\mobile-dev-develop-third\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Maksym\\.gradle\\caches\\transforms-2\\files-2.1\\f8ccfb448ba3545203b2c9319e236e39\\appcompat-1.1.0\\res\\values-v18\\values-v18.xml",

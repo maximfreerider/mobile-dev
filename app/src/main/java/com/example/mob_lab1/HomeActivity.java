@@ -3,11 +3,16 @@ package com.example.mob_lab1;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.android.volley.Request;
@@ -26,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -39,6 +45,25 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TripAdapter tripAdapter;
     SwipeRefreshLayout swipeRefreshLayout;
+    ImageView imageView;
+
+
+    @Override
+    protected boolean onPrepareOptionsPanel(@Nullable View view, @NonNull Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.actionbar, menu);
+        return super.onPrepareOptionsPanel(view, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int i = item.getItemId();
+        if(i == R.id.uses_bt){
+            Intent intent = new Intent(HomeActivity.this, Profile.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -53,7 +78,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.recyclerView);
-        tripAdapter = new TripAdapter(tripList);
+
 
         RecyclerView.LayoutManager tLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(tLayoutManager);
@@ -99,6 +124,9 @@ public class HomeActivity extends AppCompatActivity {
         });
         loadRecyclerData(null);
 
+
+
+
     }
 
     public void loadRecyclerData(final onLoadListener listener) {
@@ -130,7 +158,15 @@ public class HomeActivity extends AppCompatActivity {
                                 );
                                 tripList.add(trip);
                             }
-                            tripAdapter = new TripAdapter(tripList, getApplicationContext());
+//                            А тоді тут зовсім інший
+                            tripAdapter = new TripAdapter(tripList, new TripAdapter.TripListener() {
+                                @Override
+                                public void onItemClick(Trip trip) {
+                                    Intent intent = new Intent(HomeActivity.this, Information.class);
+                                    intent.putExtra("trip",trip);
+                                    startActivity(intent);
+                                }
+                            });
                             recyclerView.setAdapter(tripAdapter);
                             Log.d("tag", "data loaded successful");
                             if (listener != null) {
@@ -159,4 +195,5 @@ public class HomeActivity extends AppCompatActivity {
     interface onLoadListener {
         void onLoadSuccess();
     }
+
 }
