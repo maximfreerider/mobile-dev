@@ -1084,6 +1084,9 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_plane
+drawable ic_search_black_24dp
+drawable ic_user
+drawable ic_user_ic
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1169,6 +1172,7 @@ id always
 id async
 id auto
 id avia_company
+id avia_company_inf
 id barrier
 id beginning
 id blocking
@@ -1187,7 +1191,9 @@ id clip_horizontal
 id clip_vertical
 id collapseActionView
 id come_from
+id come_from_inf
 id come_to
+id come_to_inf
 id container
 id content
 id contentPanel
@@ -1206,6 +1212,8 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id editEmail
+id editName
 id editText
 id editText2
 id editText3
@@ -1222,6 +1230,7 @@ id fill_vertical
 id filled
 id fixed
 id flight_distance
+id flight_distance_inf
 id forever
 id ghost_view
 id gone
@@ -1235,6 +1244,7 @@ id icon_only
 id ifRoom
 id image
 id imageView
+id image_inf
 id info
 id invisible
 id italic
@@ -1279,6 +1289,7 @@ id recyclerView
 id right
 id right_icon
 id right_side
+id save_bt
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1311,6 +1322,7 @@ id snap
 id snapMargins
 id spacer
 id speed
+id speed_inf
 id split_action_bar
 id spread
 id spread_inside
@@ -1361,6 +1373,8 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id user_photo
+id uses_bt
 id view_offset_helper
 id visible
 id wide
@@ -1423,8 +1437,10 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_home
+layout activity_information
 layout activity_login
 layout activity_main
+layout activity_profile
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1454,6 +1470,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout trips
+menu actionbar
 mipmap ic_launcher
 mipmap ic_launcher_round
 string abc_action_bar_home_description

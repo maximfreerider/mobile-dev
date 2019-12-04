@@ -1,6 +1,7 @@
 package com.example.mob_lab1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,15 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> {
     private List<Trip> tripList;
-    private Context context;
+    private TripListener listener;
 
-    public TripAdapter(List<Trip> tripList, Context context) {
-        this.tripList = tripList;
-        this.context = context;
+    public interface TripListener {
+        void onItemClick(Trip trip);
     }
 
-    public TripAdapter(List<Trip> tripList) {
+    public TripAdapter(List<Trip> tripList, TripListener tripListener) {
         this.tripList = tripList;
+        this.listener = tripListener;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -38,6 +39,13 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
             speed = itemView.findViewById(R.id.speed);
             image = itemView.findViewById(R.id.image);
             flight_distance = itemView.findViewById(R.id.flight_distance);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(tripList.get(getAdapterPosition()));
+                }
+            });
 
         }
     }
