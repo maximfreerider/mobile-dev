@@ -1,0 +1,4 @@
+#Thu Nov 28 09:55:45 EET 2019
+base.0=F\:\\mob-lab-2\\mobile-dev-develop\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
