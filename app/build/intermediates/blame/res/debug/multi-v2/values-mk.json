@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\mob-lab-2\\mobile-dev-develop\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mk\\values-mk.xml",
+            "outputFile": "F:\\mob-2-3-labs\\mobile-dev-develop\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mk\\values-mk.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Maksym\\.gradle\\caches\\transforms-2\\files-2.1\\aafde6b05f0bd8a90e5bf385023855dc\\jetified-play-services-basement-17.0.0\\res\\values-mk\\values.xml",
