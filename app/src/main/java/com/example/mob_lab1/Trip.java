@@ -1,6 +1,9 @@
 package com.example.mob_lab1;
 
-public class Trip {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Trip implements Parcelable {
     public Trip(String name, String come_from, String come_to, String avia_company, String speed, String registration_info, String flight_distance,String img) {
         this.name = name;
         this.come_from = come_from;
@@ -11,6 +14,29 @@ public class Trip {
         this.flight_distance = flight_distance;
         this.img = img;
     }
+
+    protected Trip(Parcel in) {
+        name = in.readString();
+        come_from = in.readString();
+        come_to = in.readString();
+        avia_company = in.readString();
+        speed = in.readString();
+        registration_info = in.readString();
+        flight_distance = in.readString();
+        img = in.readString();
+    }
+
+    public static final Creator<Trip> CREATOR = new Creator<Trip>() {
+        @Override
+        public Trip createFromParcel(Parcel in) {
+            return new Trip(in);
+        }
+
+        @Override
+        public Trip[] newArray(int size) {
+            return new Trip[size];
+        }
+    };
 
     public String getImg() {
         return img;
@@ -74,5 +100,22 @@ public class Trip {
 
     public void setFlight_distance(String flight_distance) {
         this.flight_distance = flight_distance;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(come_from);
+        dest.writeString(come_to);
+        dest.writeString(avia_company);
+        dest.writeString(speed);
+        dest.writeString(registration_info);
+        dest.writeString(flight_distance);
+        dest.writeString(img);
     }
 }
