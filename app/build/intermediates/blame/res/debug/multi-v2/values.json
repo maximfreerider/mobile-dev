@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\mob-lab-2\\mobile-dev-develop\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "F:\\mob-2-3-labs\\mobile-dev-develop\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "F:\\mob-lab-2\\mobile-dev-develop\\app\\src\\main\\res\\values\\colors.xml",
+                    "source": "F:\\mob-2-3-labs\\mobile-dev-develop\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "4,2,3",
                         "startColumns": "4,4,4",
@@ -37,6 +37,40 @@
                         "endLines": "3178,3185,3196,4546,4551",
                         "endColumns": "24,24,24,24,24",
                         "endOffsets": "208962,209347,209944,292259,292529"
+                    }
+                },
+                {
+                    "source": "F:\\mob-2-3-labs\\mobile-dev-develop\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "45",
+                        "endOffsets": "57"
+                    },
+                    "to": {
+                        "startLines": "604",
+                        "startColumns": "4",
+                        "startOffsets": "36271",
+                        "endColumns": "45",
+                        "endOffsets": "36312"
+                    }
+                },
+                {
+                    "source": "F:\\mob-2-3-labs\\mobile-dev-develop\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,308,390,494,603,723,821",
+                        "endColumns": "143,108,81,103,108,119,97,74",
+                        "endOffsets": "194,303,385,489,598,718,816,891"
+                    },
+                    "to": {
+                        "startLines": "627,630,631,632,633,634,635,643",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "39122,39580,39689,39771,39875,39984,40104,41238",
+                        "endColumns": "143,108,81,103,108,119,97,74",
+                        "endOffsets": "39261,39684,39766,39870,39979,40099,40197,41308"
                     }
                 },
                 {
@@ -133,7 +167,7 @@
                     }
                 },
                 {
-                    "source": "F:\\mob-lab-2\\mobile-dev-develop\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "F:\\mob-2-3-labs\\mobile-dev-develop\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
@@ -166,23 +200,6 @@
                         "startOffsets": "33908,37829",
                         "endColumns": "67,166",
                         "endOffsets": "33971,37991"
-                    }
-                },
-                {
-                    "source": "F:\\mob-lab-2\\mobile-dev-develop\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,308,390,494,603,723,821",
-                        "endColumns": "143,108,81,103,108,119,97,74",
-                        "endOffsets": "194,303,385,489,598,718,816,891"
-                    },
-                    "to": {
-                        "startLines": "627,630,631,632,633,634,635,643",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "39122,39580,39689,39771,39875,39984,40104,41238",
-                        "endColumns": "143,108,81,103,108,119,97,74",
-                        "endOffsets": "39261,39684,39766,39870,39979,40099,40197,41308"
                     }
                 },
                 {
@@ -240,23 +257,6 @@
                         "endLines": "245,246,348,349,350,351,352,353,354,462,463,464,465,466,467,468,469,470,471,472,473,474,475,476,485,486,487,488,489,490,491,492,493,494,495,496,497,498,499,500,501,502,503,504,505,506,507,508,509,510,511,512,513,514,515,516,517,518,519,527,528,540,541,542,543,544,545,546,547,548,549,553,576,645,2368,2372,2373,2377,2378,2746,2747,3868,4070,4102,4140,4147",
                         "endColumns": "68,62,69,67,71,69,60,73,72,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,64,58,58,59,59,59,59,59,59,59,59,59,59,58,59,59,59,59,59,59,59,59,59,59,58,59,59,58,58,58,58,58,58,34,34,54,62,54,57,56,49,60,56,33,34,34,69,70,116,12,109,12,128,71,66,24,24,24,24,24",
                         "endOffsets": "13576,13639,20597,20665,20737,20807,20868,20942,21015,27900,27961,28023,28087,28149,28210,28278,28378,28438,28504,28577,28646,28703,28755,28817,29342,29418,29483,29542,29601,29661,29721,29781,29841,29901,29961,30021,30081,30141,30201,30260,30320,30380,30440,30500,30560,30620,30680,30740,30800,30860,30919,30979,31039,31098,31157,31216,31275,31334,31393,31773,31808,32403,32466,32521,32579,32636,32686,32747,32804,32838,32873,33051,34400,41432,157650,157851,157961,158162,158291,182986,183053,247433,265799,267864,269826,270203"
-                    }
-                },
-                {
-                    "source": "F:\\mob-lab-2\\mobile-dev-develop\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "16",
-                        "endColumns": "45",
-                        "endOffsets": "57"
-                    },
-                    "to": {
-                        "startLines": "604",
-                        "startColumns": "4",
-                        "startOffsets": "36271",
-                        "endColumns": "45",
-                        "endOffsets": "36312"
                     }
                 },
                 {

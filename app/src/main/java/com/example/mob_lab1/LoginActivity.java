@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
     private int passMinLenght = 8;
     public String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,20 +41,6 @@ public class LoginActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.button1);
         tvSignIn = findViewById(R.id.textView);
 
-        mAuthStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-                if(mFirebaseUser != null){
-                    Toast.makeText(LoginActivity.this,"You are logged in",Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(i);
-                }
-                else {
-                    Toast.makeText(LoginActivity.this,"Please Login",Toast.LENGTH_SHORT).show();
-                }
-            }
-        };
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,12 +87,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intSignUp);
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        mFirebaseAuth.addAuthStateListener(mAuthStateListener);
     }
 
     public void onBackPressed(){

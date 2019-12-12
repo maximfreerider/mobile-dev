@@ -1,35 +1,35 @@
 package com.example.mob_lab1;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> {
     private List<Trip> tripList;
-    private Context context;
+    private TripListener listener;
 
-    public TripAdapter(List<Trip> tripList, Context context) {
-        this.tripList = tripList;
-        this.context = context;
+    public interface TripListener {
+        void onItemClick(Trip trip);
     }
 
-    public TripAdapter(List<Trip> tripList) {
+    public TripAdapter(List<Trip> tripList, TripListener tripListener) {
         this.tripList = tripList;
+        this.listener = tripListener;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView come_from, come_to, avia_company, speed, flight_distance;
         ImageView image;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             come_from = itemView.findViewById(R.id.come_from);
@@ -39,8 +39,16 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
             image = itemView.findViewById(R.id.image);
             flight_distance = itemView.findViewById(R.id.flight_distance);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(tripList.get(getAdapterPosition()));
+                }
+            });
+
         }
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
