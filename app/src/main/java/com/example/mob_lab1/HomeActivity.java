@@ -3,12 +3,20 @@ package com.example.mob_lab1;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.Network;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,6 +25,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,39 +36,41 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 public class HomeActivity extends AppCompatActivity {
     private static final String URL_DATA = "https://us-central1-globo-a0b72.cloudfunctions.net/test";
     private List<Trip> tripList = new ArrayList<>();
     private RecyclerView recyclerView;
     private TripAdapter tripAdapter;
     SwipeRefreshLayout swipeRefreshLayout;
+    FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.actionbar, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int i = item.getItemId();
+        if (i == R.id.uses_bt) {
+            Intent intent = new Intent(HomeActivity.this, Profile.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @SuppressLint("NewApi")
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trips);
         final Snackbar snackBar = Snackbar.make(findViewById(android.R.id.content), "No internet connection", Snackbar.LENGTH_LONG);
-
-        ImageView imageView1 = findViewById(R.id.image);
-
-
         recyclerView = findViewById(R.id.recyclerView);
-        tripAdapter = new TripAdapter(tripList);
-
         RecyclerView.LayoutManager tLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(tLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(tripAdapter);
 
 
@@ -65,7 +78,6 @@ public class HomeActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                tripAdapter.notifyDataSetChanged();
                 loadRecyclerData(new onLoadListener() {
                     @Override
                     public void onLoadSuccess() {
@@ -80,7 +92,7 @@ public class HomeActivity extends AppCompatActivity {
             public void onAvailable(@NonNull Network network) {
                 super.onAvailable(network);
                 snackBar.dismiss();
-                loadRecyclerData(null);
+//                loadRecyclerData(null);
                 Log.d("tag", "onNetwork available");
             }
 
@@ -98,6 +110,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         loadRecyclerData(null);
+
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+//        FirebaseFirestore.getInstance().collection("users").document(firebaseUser.getUid())
+//                .update("pushToken",);
 
     }
 
@@ -130,7 +146,15 @@ public class HomeActivity extends AppCompatActivity {
                                 );
                                 tripList.add(trip);
                             }
-                            tripAdapter = new TripAdapter(tripList, getApplicationContext());
+
+                            tripAdapter = new TripAdapter(tripList, new TripAdapter.TripListener() {
+                                @Override
+                                public void onItemClick(Trip trip) {
+                                    Intent intent = new Intent(HomeActivity.this, Information.class);
+                                    intent.putExtra("trip", trip);
+                                    startActivity(intent);
+                                }
+                            });
                             recyclerView.setAdapter(tripAdapter);
                             Log.d("tag", "data loaded successful");
                             if (listener != null) {
@@ -159,4 +183,5 @@ public class HomeActivity extends AppCompatActivity {
     interface onLoadListener {
         void onLoadSuccess();
     }
+
 }
