@@ -34,12 +34,14 @@ public class MainActivity extends AppCompatActivity {
     public int passMinLenght = 8;
     public String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+
+    //Indicates that Lint should ignore the specified warnings for the annotated element.
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
 
         username = findViewById(R.id.editText2);
         mFirebaseAuth = FirebaseAuth.getInstance();
