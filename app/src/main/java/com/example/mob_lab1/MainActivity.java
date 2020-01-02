@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     public int passMinLenght = 8;
     public String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
+
+    //Indicates that Lint should ignore the specified warnings for the annotated element.
     @SuppressLint("NewApi")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -100,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
 
 
     }

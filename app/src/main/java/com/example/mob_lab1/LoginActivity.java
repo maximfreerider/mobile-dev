@@ -46,13 +46,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-                if(mFirebaseUser != null){
-                    Toast.makeText(LoginActivity.this,"You are logged in",Toast.LENGTH_SHORT).show();
+                if (mFirebaseUser != null) {
+                    Toast.makeText(LoginActivity.this, "You are logged in", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(i);
-                }
-                else {
-                    Toast.makeText(LoginActivity.this,"Please Login",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Please Login", Toast.LENGTH_SHORT).show();
                 }
             }
         };
@@ -63,34 +62,34 @@ public class LoginActivity extends AppCompatActivity {
                 String email = emailID.getText().toString();
                 String pwd = password.getText().toString();
 
-                if(email.isEmpty()){
+                if (email.isEmpty()) {
                     emailID.setError("Please enter your email");
                     emailID.requestFocus();
-                } else if(pwd.isEmpty()) {
+                } else if (pwd.isEmpty()) {
                     password.setError("Please enter your password");
                     password.requestFocus();
-                } else if(password.length() < passMinLenght){  // Validation of pass
+                } else if (password.length() < passMinLenght) {  // Validation of pass
                     password.setText("");
                     password.setError("Minimal lengt of password should be 8!");
-                } else if(!emailID.getText().toString().trim().matches(emailPattern)){  // Validation of email
+                } else if (!emailID.getText().toString().trim().matches(emailPattern)) {  // Validation of email
                     emailID.setText("");
                     emailID.setError("Please re-enter your email correctly");
-                } else if(email.isEmpty() && pwd.isEmpty()){
-                    Toast.makeText(LoginActivity.this, "Fields are empty!",Toast.LENGTH_SHORT).show();
-                } else if(!(email.isEmpty() && pwd.isEmpty())){
+                } else if (email.isEmpty() && pwd.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Fields are empty!", Toast.LENGTH_SHORT).show();
+                } else if (!(email.isEmpty() && pwd.isEmpty())) {
                     mFirebaseAuth.signInWithEmailAndPassword(email, pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(!task.isSuccessful()){
-                                Toast.makeText(LoginActivity.this, "Please Login again",Toast.LENGTH_SHORT).show();
-                            } else{
+                            if (!task.isSuccessful()) {
+                                Toast.makeText(LoginActivity.this, "Please Login again", Toast.LENGTH_SHORT).show();
+                            } else {
                                 Intent intToHome = new Intent(LoginActivity.this, HomeActivity.class);
                                 startActivity(intToHome);
                             }
                         }
                     });
-                } else{
-                    Toast.makeText(LoginActivity.this, "Error Occured!",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(LoginActivity.this, "Error Occured!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -110,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
     }
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         moveTaskToBack(true);
     }
 }
