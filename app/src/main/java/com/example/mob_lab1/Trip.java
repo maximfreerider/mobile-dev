@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Trip implements Parcelable {
-    public Trip(String name, String come_from, String come_to, String avia_company, String speed, String registration_info, String flight_distance,String img) {
+    public Trip(String name, String come_from, String come_to, String avia_company, String speed, String registration_info, String flight_distance, String img) {
         this.name = name;
         this.come_from = come_from;
         this.come_to = come_to;
@@ -42,7 +42,8 @@ public class Trip implements Parcelable {
         return img;
     }
 
-    private String name, come_from, come_to, avia_company, speed, registration_info, flight_distance,img;
+    private String name, come_from, come_to, avia_company, speed, registration_info, flight_distance, img;
+
     public Trip() {
     }
 

@@ -117,7 +117,7 @@ public class Profile extends AppCompatActivity {
 
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = 2;
-                newProfilePic = BitmapFactory.decodeStream(inputStream,null,options);
+                newProfilePic = BitmapFactory.decodeStream(inputStream, null, options);
                 inputStream.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

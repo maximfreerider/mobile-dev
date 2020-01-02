@@ -31,6 +31,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView come_from, come_to, avia_company, speed, flight_distance;
         ImageView image;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             come_from = itemView.findViewById(R.id.come_from);
@@ -49,6 +50,7 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.MyViewHolder> 
 
         }
     }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

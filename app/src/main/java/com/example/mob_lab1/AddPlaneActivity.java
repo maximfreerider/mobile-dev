@@ -21,32 +21,32 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddPlaneActivity extends AppCompatActivity {
-    EditText nameEt;
-    EditText aviaEt;
-    EditText fromEt;
-    EditText toEt;
-    EditText speedEt;
-    EditText distanceEt;
-    EditText registrationEt;
+    private EditText name;
+    private EditText aviacompany;
+    private EditText comeFrom;
+    private EditText comeTo;
+    private EditText speed;
+    private EditText distance;
+    private EditText registrationInfo;
 
-    Button addBtn;
+    private Button addBtn;
 
-    ImageView photoIv;
+    private ImageView photoIv;
 
-    ApiService service;
+    private ApiService service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plane);
-        nameEt = findViewById(R.id.name_et);
-        fromEt = findViewById(R.id.from_et);
-        toEt = findViewById(R.id.to_et);
-        speedEt = findViewById(R.id.speed_et);
-        distanceEt = findViewById(R.id.distance_et);
-        aviaEt = findViewById(R.id.avia_company_et);
+        name = findViewById(R.id.name_et);
+        comeFrom = findViewById(R.id.from_et);
+        comeTo = findViewById(R.id.to_et);
+        speed = findViewById(R.id.speed_et);
+        distance = findViewById(R.id.distance_et);
+        aviacompany = findViewById(R.id.avia_company_et);
         addBtn = findViewById(R.id.add_btn);
-        registrationEt = findViewById(R.id.registration_et);
+        registrationInfo = findViewById(R.id.registration_et);
         photoIv = findViewById(R.id.photo_iv);
         Picasso.get().load("https://www.telegraph.co.uk/content/dam/Travel/2018/January/white-plane-sky.jpg?imwidth=450")
                 .into(photoIv);
@@ -54,28 +54,28 @@ public class AddPlaneActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String name = nameEt.getText().toString();
-                String from = fromEt.getText().toString();
-                String to = toEt.getText().toString();
-                String speed = speedEt.getText().toString();
-                String distance = distanceEt.getText().toString();
-                String aviaCompany = aviaEt.getText().toString();
-                String registration = registrationEt.getText().toString();
+                String name = name.getText().toString();
+                String from = comeFrom.getText().toString();
+                String to = comeTo.getText().toString();
+                String speed = speed.getText().toString();
+                String distance = distance.getText().toString();
+                String aviaCompany = aviacompany.getText().toString();
+                String registration = registrationInfo.getText().toString();
 
                 if (name.isEmpty()) {
-                    nameEt.setError("Введіть назву");
+                    name.setError("Введіть назву");
                 } else if (aviaCompany.isEmpty()) {
-                    distanceEt.setError("Введіть назву авіакомпанії");
+                    distance.setError("Введіть назву авіакомпанії");
                 } else if (from.isEmpty()) {
-                    fromEt.setError("Введіть адресу з");
+                    comeFrom.setError("Введіть адресу з");
                 } else if (to.isEmpty()) {
-                    toEt.setError("Введіть адресу куди");
+                    comeTo.setError("Введіть адресу куди");
                 } else if (registration.isEmpty()) {
-                    distanceEt.setError("Введіть інфо про реєстрацію");
+                    distance.setError("Введіть інфо про реєстрацію");
                 } else if (speed.isEmpty()) {
-                    speedEt.setError("Введіть швидкість");
+                    speed.setError("Введіть швидкість");
                 } else if (distance.isEmpty()) {
-                    distanceEt.setError("Введіть відстань");
+                    distance.setError("Введіть відстань");
                 } else {
                     Trip trip = new Trip(name, from, to, aviaCompany, speed, registration, distance,
                             "https://www.telegraph.co.uk/content/dam/Travel/2018/January/white-plane-sky.jpg?imwidth=450");
